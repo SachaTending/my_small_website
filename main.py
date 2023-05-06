@@ -1,11 +1,11 @@
 import os, gunicorn, sitemain, sys
-from flask import Flask
+from flask import Flask, send_file
 from datetime import datetime
 from gunicorn import SERVER_SOFTWARE as gver
 
 pcount: int = 0
 
-slinks = "<p>Site links: <a href=\"/\">index</a>, <a href=\"/stats\">stats</a></p>"
+slinks = "<p>Site links: <a href=\"/\">index</a>, <a href=\"/stats\">stats</a>, <a href=\"/wtv\">wtv stuff</a></p>"
 
 print("pls wait while im starting.")
 print(f"Gunicorn version: {gunicorn.SERVER_SOFTWARE}")
@@ -32,6 +32,13 @@ def stats():
         uptime=os.popen("uptime").read()
     )
 
+@app.route("/wtv")
+def wtv():
+    return general_gen("wtv.html")
+
+@app.route("/data/<file>")
+def data(file: str):
+    return send_file(cwd+"data/"+file)
 @app.route("/")
 def index():
     return general_gen(
