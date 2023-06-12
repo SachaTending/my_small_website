@@ -5,7 +5,7 @@ from gunicorn import SERVER_SOFTWARE as gver
 
 pcount: int = 0
 
-slinks = "<p>Site links: <a href=\"/\">index</a>, <a href=\"/stats\">stats</a>, <a href=\"/wtv\">wtv stuff</a></p>"
+slinks = "<p>Site links: <a href=\"./\">index</a>, <a href=\"./stats\">stats</a>, <a href=\"./wtv\">wtv stuff</a></p>"
 
 print("pls wait while im starting.")
 print(f"Gunicorn version: {gunicorn.SERVER_SOFTWARE}")
