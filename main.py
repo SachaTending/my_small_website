@@ -6,7 +6,7 @@ from base import plugs_init
 
 pcount: int = 0
 
-slinks = "<p>Site links: <a href=\"\">index</a>, <a href=\"./stats\">stats</a>, <a href=\"./wtv\">wtv stuff</a></p>"
+slinks = "<p>Site links: <a href=\"/\">index</a>, <a href=\"/stats\">stats</a>, <a href=\"/wtv\">wtv stuff</a></p>"
 
 print("pls wait while im starting.")
 plugs = plugs_init()
