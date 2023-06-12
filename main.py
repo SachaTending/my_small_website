@@ -2,12 +2,15 @@ import os, gunicorn, sitemain, sys
 from flask import Flask, send_file
 from datetime import datetime
 from gunicorn import SERVER_SOFTWARE as gver
+from base import plugs_init
 
 pcount: int = 0
 
-slinks = "<p>Site links: <a href=\"./\">index</a>, <a href=\"./stats\">stats</a>, <a href=\"./wtv\">wtv stuff</a></p>"
+slinks = "<p>Site links: <a href=\"\">index</a>, <a href=\"./stats\">stats</a>, <a href=\"./wtv\">wtv stuff</a></p>"
 
 print("pls wait while im starting.")
+plugs = plugs_init()
+for i in plugs: i.pre_init()
 print(f"Gunicorn version: {gunicorn.SERVER_SOFTWARE}")
 print("building app...")
 cwd = os.getcwd()
@@ -48,4 +51,6 @@ def index():
         gver=gver,
         pyver=sys.version
     )
+for i in plugs: i.app_setup(app)
+for i in plugs: i.post_init()
 print("server ready!")
