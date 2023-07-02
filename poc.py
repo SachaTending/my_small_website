@@ -13,7 +13,7 @@ hack_data = """
 """
 
 hack = f"""
-200 OK HTTP/1.1
+HTTP/1.1 200 OK
 Server: Webtv fuc...hacking
 Content-Type: text/html
 Content-Length: {len(hack_data)}
