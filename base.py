@@ -1,13 +1,20 @@
 import glob
 import sys
 from flask import Flask
-
+import sitemain
+slinks: str
 class Plugin:
     id: str
     name: str
     def post_init(self): return
     def pre_init(self): return
     def app_setup(self, app: Flask): return
+    def slinks_patch(self, slinks: str) -> str: return slinks
+
+def general_gen(*args, **kwargs):
+    output = sitemain.gen_templ(*args, **kwargs)
+    output = slinks+output
+    return output
 
 def plugs_init() -> list[Plugin]:
     pl = []
