@@ -10,4 +10,4 @@ class WebtvPOC(Plugin):
             return general_gen("webtv_fucking.html")
         @app.route("/webtv_hacking/poc")
         def hack_it():
-            return Response('<h1>pls wait while hacking your box...</h1>', 300, {'Location': 'http://tendhost.ddns.net:1415/'})
+            return general_gen('boxhack.html')
