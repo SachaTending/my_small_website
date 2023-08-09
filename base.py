@@ -47,4 +47,6 @@ def plugs_init() -> list[Plugin]:
     return plugs
 
 def gen_path(path: str):
-    return pathjoin(SITE_PREFIX, path)
+    if path.startswith("/"): path = path.removeprefix("/")
+    out = SITE_PREFIX + path
+    return out

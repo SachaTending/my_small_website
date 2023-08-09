@@ -1,1 +1,1 @@
-SITE_PREFIX = "/site"
+SITE_PREFIX = "/site/"
