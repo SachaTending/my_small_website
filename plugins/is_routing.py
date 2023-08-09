@@ -14,6 +14,7 @@ class is_routing_plugin(Plugin):
         @app.before_request
         def patch():
             if "X-Forwarded-For" in request.headers or "/site" in request.path:
-                request.path = request.path.removeprefix("/site")
+                #request.path = request.path.removeprefix("/site")
+                pass
     def post_init(self):
         return
