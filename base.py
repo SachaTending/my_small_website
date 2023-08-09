@@ -2,6 +2,9 @@ import glob
 import sys
 from flask import Flask
 import sitemain
+from os.path import join as pathjoin
+from config import SITE_PREFIX
+
 slinks: str
 class Plugin:
     id: str
@@ -42,3 +45,6 @@ def plugs_init() -> list[Plugin]:
         except: print(f"{i}", end=", ")
     print()
     return plugs
+
+def gen_path(path: str):
+    return pathjoin(SITE_PREFIX, path)
